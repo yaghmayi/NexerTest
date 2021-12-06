@@ -1,0 +1,74 @@
+<div style="height: 80px">
+  <h3>
+    <u>{{pageTitle}}</u>
+  </h3>
+</div>
+
+<div class="col-sm-6">
+  <form>
+
+    <div class="form-group row">
+      <div class="col-sm-4 col-form-label">
+        <span *ngIf="isNullOrEmpty(alpaca.name)" class="validator">*</span>
+
+        <label for="name">
+          Name
+        </label>
+      </div>
+
+      <div class="col-sm-8">
+        <input type="text" id="name" name="name" [required]="true" [minLength]="1" [maxLength]="50" class="form-control" [(ngModel)]="alpaca.name" autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-4 col-form-label">
+        <span *ngIf="isNullOrEmpty(alpaca.weight)" class="validator">*</span>
+
+        <label for="weight">
+          Weight
+        </label>
+      </div>
+
+      <div class="col-sm-8">
+        <input type="number" id="weight" name="weight" [required]="true" [min]="1" [max]="1000" class="form-control" [(ngModel)]="alpaca.weight" autocomplete="off"/>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-4 col-form-label">
+        <label for="color">
+          Color
+        </label>
+      </div>
+
+      <div class="col-sm-8">
+        <input type="color" id="color" name="color" [(ngModel)]="alpaca.color" />
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-4 col-form-label">
+        <span *ngIf="isNullOrEmpty(alpaca.farm.id)" class="validator">*</span>
+
+        <label for="farm">
+          Farm
+        </label>
+      </div>
+
+      <div class="col-sm-8">
+        <select [disabled]="disable" class="form-control" id="farm" name="farm" [required]="require" [(ngModel)]="alpaca.farm.id">
+          <option *ngFor="let farmItem of farms" [ngValue]="farmItem.id">{{farmItem.name}}</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div align="right">
+      <button type="button" [disabled]="!isValidForm()" (click)="onSave()" class="btn btn-primary" value="Save">{{saveButtonCaption}}</button>
+      <button type="button" (click)="onCancel()" class="btn btn-secondary">Cancel</button>
+      <button *ngIf="deleteButtonVisibility" type="button" (click)="onDelete()" class="btn btn-danger">Delete</button>
+    </div>
+
+  </form>
+</div>

@@ -23,9 +23,7 @@
     <ProjectReference Include="..\Business\Business.csproj" />
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
     <ProjectReference Include="..\Entities\Models.csproj" />
-    <ProjectReference Include="..\UI\UI.csproj" />
-    <ProjectReference Include="..\WebData\Business.csproj" />
-    <ProjectReference Include="..\WebTest\UI.csproj" />
+    <ProjectReference Include="..\WebUI\UI.csproj" />
   </ItemGroup>
 
 </Project>

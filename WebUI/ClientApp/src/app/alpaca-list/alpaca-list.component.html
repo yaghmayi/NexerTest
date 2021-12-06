@@ -1,0 +1,77 @@
+<div>
+  <h3>
+    <u>Alpaca List</u>
+  </h3>
+</div>
+
+<div align="right">
+  <a href="/addalpaca?id=-1" class="btn btn-primary">Add Alpaca</a>
+</div>
+
+<div>
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>Alpaca Name</th>
+      <th>Alpaca Weight</th>
+      <th>Color</th>
+      <th>Farm</th>
+      <th>Cost</th>
+
+      <th>Select</th>
+
+      <th></th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let item of alpacaItems">
+        <td>{{item.name}}</td>
+        <td>{{item.weight}}</td>
+
+        <td>
+          <input disabled="disabled" type="color" id="color" name="color" [(ngModel)]="item.color" />
+        </td>
+
+        <td>{{item.farm.name}}</td>
+        <td>{{item.cost | number : '1.2-2'}} SEK</td>
+
+        <td>
+          <input type="checkbox" class="custom-control-input" id="select" name="select" [(ngModel)]="item.isSelected" (change)="refreshGroupItems()"/>
+        </td>
+
+        <td>
+          <a href="/addalpaca?id={{item.id}}">
+            Edit
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="isThereSelectedAlpaca()">
+  <h3>
+    Summary Info
+  </h3>
+</div>
+
+<div class="col-sm-6" *ngIf="isThereSelectedAlpaca()">
+  <table class="table table-striped table-hover">
+    <thead>
+      <th>Farm</th>
+      <th>Alpacas Count</th>
+      <th>Cost</th>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let gItem of groupItems">
+        <td>{{gItem.farmName}}</td>
+        <td>{{gItem.alpacasCount}}</td>
+
+        <td [ngClass]="gItem.isTotalRow ? 'bolded' : ''">{{gItem.cost | number : '1.2-2'}} SEK</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
