@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AssemblyName>Alpacinator.DataAccess</AssemblyName>
+    <RootNamespace>Alpacinator.DataAccess</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Base\CreateDb.sql" />
+    <None Remove="Base\InitData.sql" />
+    <None Remove="Base\SelectAll_Alpaca.sql" />
+    <None Remove="Base\SelectById_Alpaca.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Base\SelectById_Alpaca.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\SelectAll_Alpaca.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\InitData.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Base\CreateDb.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SQLite" Version="1.0.115.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Entities\Models.csproj" />
+  </ItemGroup>
+
+</Project>
