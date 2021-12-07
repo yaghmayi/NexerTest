@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AlpacaService } from "../services/alpaca.service";
 import { IAlpaca } from "../interfaces/alpaca.interface";
-import { IGroupItem } from "../interfaces/groubItem";
+import { ISummaryRow } from "../interfaces/summaryRow";
 
 @Component({
   selector: 'alpaca-list',
@@ -10,7 +10,7 @@ import { IGroupItem } from "../interfaces/groubItem";
 
 export class AlpacaListComponent {
   alpacaItems: IAlpaca[] = [];
-  groupItems: IGroupItem[] = [];
+  summaryRows: ISummaryRow[] = [];
 
   constructor(private readonly service: AlpacaService) {
   }
@@ -30,7 +30,7 @@ export class AlpacaListComponent {
   }
 
   refreshGroupItems() {
-    this.groupItems = [];
+    this.summaryRows = [];
 
     let totalCost = 0;
 
@@ -39,30 +39,27 @@ export class AlpacaListComponent {
       if (alpacaItem.isSelected) {
         totalCost += alpacaItem.cost;
 
-        let groupItem : IGroupItem = this.groupItems.find(x => x.farmName === alpacaItem.farm.name);
-        
+        let row : ISummaryRow = this.summaryRows.find(x => x.farmName === alpacaItem.farm.name);
 
-        if (groupItem != null) {
-          groupItem.alpacasCount++;
-          groupItem.cost = groupItem.cost + alpacaItem.cost;
+        if (row != null) {
+          row.alpacasCount++;
+          row.cost += alpacaItem.cost;
         } else {
-          groupItem = {};
-          groupItem.farmName = alpacaItem.farm.name;
-          groupItem.alpacasCount = 1;
-          groupItem.cost = alpacaItem.cost;
+          row = {};
+          row.farmName = alpacaItem.farm.name;
+          row.alpacasCount = 1;
+          row.cost = alpacaItem.cost;
 
-          this.groupItems.push(groupItem);
+          this.summaryRows.push(row);
         }
       }
     });
 
-    let totalRow: IGroupItem = {
+    let totalRow: ISummaryRow = {
        cost: totalCost,
        isTotalRow: true
     };
 
-    this.groupItems.push(totalRow);
+    this.summaryRows.push(totalRow);
   }
-
-
 }

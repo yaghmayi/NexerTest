@@ -1,4 +1,4 @@
-export interface IGroupItem {
+export interface ISummaryRow {
   farmName?: string,
   alpacasCount?: number,
   cost?: number,

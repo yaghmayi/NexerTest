@@ -33,7 +33,7 @@
   <ItemGroup>
     <None Remove="ClientApp\src\app\interfaces\alpaca.interface.ts" />
     <None Remove="ClientApp\src\app\interfaces\farm.interface.ts" />
-    <None Remove="ClientApp\src\app\interfaces\groubItem.ts" />
+    <None Remove="ClientApp\src\app\interfaces\summaryRow.ts" />
     <None Remove="ClientApp\src\app\services\alpaca.service.ts" />
   </ItemGroup>
 
@@ -43,7 +43,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <TypeScriptCompile Include="ClientApp\src\app\interfaces\groubItem.ts">
+    <TypeScriptCompile Include="ClientApp\src\app\interfaces\summaryRow.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\interfaces\farm.interface.ts">
