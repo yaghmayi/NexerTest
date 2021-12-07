@@ -13,6 +13,8 @@ export class AlpacaEditComponent {
   alpaca: IAlpaca = {};
   farms : IFarm[] = [];
 
+  oldColorValue : string = null;
+
   pageTitle: string;
   saveButtonCaption : string;
   deleteButtonVisibility: boolean;
@@ -63,8 +65,10 @@ export class AlpacaEditComponent {
   }
 
   private loadAlpaca(id: number) {
-    this.service.getAlpaca(id).subscribe(result =>
-      this.alpaca = result
+    this.service.getAlpaca(id).subscribe(result => {
+        this.alpaca = result;
+        this.oldColorValue = this.alpaca.color;
+      }
     );
   }
 
@@ -93,5 +97,19 @@ export class AlpacaEditComponent {
 
   isNullOrEmpty(val: number | string) : boolean {
     return val == null || val === '' || val.toString().trim() === '';
+  }
+
+  preventBlueColor() {
+    const hexColor = this.alpaca.color;
+
+    const r = parseInt(hexColor.substr(1, 2), 16);
+    const g = parseInt(hexColor.substr(3, 2), 16);
+    const b = parseInt(hexColor.substr(5, 2), 16);
+
+    if (b > r && b > g) {
+      this.alpaca.color = this.oldColorValue;
+    } else {
+      this.oldColorValue = this.alpaca.color;
+    }
   }
 }
