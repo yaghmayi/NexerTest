@@ -4,8 +4,8 @@ In this project, we have used;
 	1- MVC Architecture
 	2- SqlLite (Memory database) + pure SQL for data access layer
 	3- UnitTests for Test assement
-	4- C# language and .net core for backend side
-	5- Angular and bootsatrab for fronend side
+	4- C# language and .net core framework in backend side
+	5- Angular and bootsatrab packages in fronend side
 	
 	
 Steps to run the project:
