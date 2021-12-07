@@ -9,4 +9,4 @@ In this project, we have used;
 	- SqlLite (Memory database) + pure SQL for data access layer
 	- UnitTests for Test assement
 	- C# language and .net core framework in backend side
-	- Angular and bootsatrab packages in fronend side
+	- Angular and bootsatrab packages in frontend side
