@@ -1,7 +1,6 @@
 ﻿DROP TABLE IF EXISTS Farm;
 DROP TABLE IF EXISTS Alpaca;
 
-
 CREATE TABLE [Farm] ( 
 	Id			[int]				NOT NULL, 
 	Name		[varchar]	(50)	NOT NULL, 
@@ -9,7 +8,6 @@ CREATE TABLE [Farm] (
 
 	PRIMARY KEY (Id) 
 );
-
 
 CREATE TABLE [Alpaca] ( 
 	Id			[int]				NOT NULL, 

@@ -33,8 +33,6 @@ namespace Alpacinator.DataAccess.Base
             }
         }
 
-        
-
         public int GetRowsCount(string tableName)
         {
             int count = 0;

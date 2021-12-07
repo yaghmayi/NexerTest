@@ -21,6 +21,7 @@
       </div>
     </div>
 
+
     <div class="form-group row">
       <div class="col-sm-4 col-form-label">
         <span *ngIf="isNullOrEmpty(alpaca.weight)" class="validator">*</span>
@@ -34,6 +35,7 @@
         <input type="number" id="weight" name="weight" [required]="true" [min]="1" [max]="1000" class="form-control" [(ngModel)]="alpaca.weight" autocomplete="off"/>
       </div>
     </div>
+
 
     <div class="form-group row">
       <div class="col-sm-4 col-form-label">

@@ -17,7 +17,6 @@ namespace Alpacinator.DataAccess.Repository
             _alpacinatorDb.Initialize();
         }
 
-
         public List<Farm> GetAll()
         {
             List<Farm> farms = new List<Farm>();
