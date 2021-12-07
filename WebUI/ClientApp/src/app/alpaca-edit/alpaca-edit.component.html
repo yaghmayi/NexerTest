@@ -51,7 +51,7 @@
 
     <div class="form-group row">
       <div class="col-sm-4 col-form-label">
-        <span *ngIf="isNullOrEmpty(alpaca.farm.id)" class="validator">*</span>
+        <span *ngIf="alpaca.farm && isNullOrEmpty(alpaca.farm.id)" class="validator">*</span>
 
         <label for="farm">
           Farm
@@ -59,7 +59,7 @@
       </div>
 
       <div class="col-sm-8">
-        <select [disabled]="disable" class="form-control" id="farm" name="farm" [required]="require" [(ngModel)]="alpaca.farm.id">
+        <select *ngIf="alpaca.farm" [disabled]="disable" class="form-control" id="farm" name="farm" [required]="require" [(ngModel)]="alpaca.farm.id">
           <option *ngFor="let farmItem of farms" [ngValue]="farmItem.id">{{farmItem.name}}</option>
         </select>
       </div>

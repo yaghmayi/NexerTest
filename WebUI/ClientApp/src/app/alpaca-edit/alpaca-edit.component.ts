@@ -76,9 +76,9 @@ export class AlpacaEditComponent {
 
   getIdParam() : string {
       const parameters = new URLSearchParams(window.location.search);
-      let idVlaue = parameters.get("id");
+      let idValue = parameters.get("id");
 
-      return idVlaue;
+      return idValue;
   }
 
   isValidForm() : boolean {
